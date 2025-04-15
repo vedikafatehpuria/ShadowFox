@@ -1,10 +1,14 @@
-from src.autocorrect import correct_word
+from src.autocorrect import correct_sentence
 from src.predictor import predict_next
+import nltk
+nltk.download('punkt')
 
-# Test autocorrect
-print("Autocorrect test:")
-print(f"Input: wrld → Correction: {correct_word('wrld')}")
 
-# Test next word prediction
-print("\nNext-word prediction test:")
-print(f"Input: hello → Prediction: {predict_next('hello')}")
+sentence = "helo how ar"
+
+
+corrected = correct_sentence(sentence)
+print(f"Autocorrected: {corrected}")
+
+next_word = predict_next(corrected)
+print(f"Predicted next word: {next_word}")
